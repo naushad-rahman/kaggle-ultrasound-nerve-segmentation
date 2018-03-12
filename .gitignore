@@ -1,0 +1,7 @@
+test/
+train/
+u-net-release/
+raw/
+.DS_Store
+.idea/
+*.npy
