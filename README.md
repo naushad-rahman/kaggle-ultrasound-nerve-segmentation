@@ -68,3 +68,6 @@ Strides = (1, 1)
 The best performance was reached while using Adam Optimized with Learning Rate of `1e-5`.
 It took about `48 seconds` per epoch on `g3.x4 GPU` in AWS. Model can be trained locally, it took me `2698s` to run one epoch on MacBook Pro.
 To run a model, run `python train.py`. All setting are pulled into constants for easier access for modification in `model.py`.
+
+### Submission
+ To submit a results I ran a script `python submit.py` that will generate a `submission.csv` that has two columns `(image, pixels)`. Generate by reading and analyzing data from previously generated `imgs_mask_test.npy`.

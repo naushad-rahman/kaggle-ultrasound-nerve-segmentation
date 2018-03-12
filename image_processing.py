@@ -6,19 +6,19 @@ import numpy as np
 from skimage.io import imread
 from helper import print_text
 
-data_path = 'raw/'
+DATA_DIR = 'raw/'
 
-image_rows = 420
-image_cols = 580
+IMAGE_ROWS = 420
+IMAGE_COLS = 580
 
 
 def create_train_data():
-    train_data_path = os.path.join(data_path, 'train')
+    train_data_path = os.path.join(DATA_DIR, 'train')
     images = os.listdir(train_data_path)
     total = len(images) / 2
 
-    imgs = np.ndarray((total, image_rows, image_cols), dtype=np.uint8)
-    imgs_mask = np.ndarray((total, image_rows, image_cols), dtype=np.uint8)
+    imgs = np.ndarray((total, IMAGE_ROWS, IMAGE_COLS), dtype=np.uint8)
+    imgs_mask = np.ndarray((total, IMAGE_ROWS, IMAGE_COLS), dtype=np.uint8)
 
     i = 0
     print_text('Creating training images.')
@@ -52,11 +52,11 @@ def load_train_data():
 
 
 def create_test_data():
-    train_data_path = os.path.join(data_path, 'test')
+    train_data_path = os.path.join(DATA_DIR, 'test')
     images = os.listdir(train_data_path)
     total = len(images)
 
-    imgs = np.ndarray((total, image_rows, image_cols), dtype=np.uint8)
+    imgs = np.ndarray((total, IMAGE_ROWS, IMAGE_COLS), dtype=np.uint8)
     imgs_id = np.ndarray((total, ), dtype=np.int32)
 
     i = 0
@@ -81,9 +81,9 @@ def create_test_data():
 
 
 def load_test_data():
-    imgs_test = np.load('imgs_test.npy')
-    imgs_id = np.load('imgs_mask_test.npy')
-    return imgs_test, imgs_id
+    test_images = np.load('imgs_test.npy')
+    image_masks = np.load('imgs_mask_test.npy')
+    return test_images, image_masks
 
 
 if __name__ == '__main__':
